@@ -11,7 +11,7 @@ const UserRoute = ({ isAuthenticated, component: Component, ...rest }) => (
     />
 );
 
-UserRoute.PropTypes = {
+UserRoute.propTypes = {
     component: PropTypes.func.isRequired,
     isAuthenticated: PropTypes.bool.isRequired
 };

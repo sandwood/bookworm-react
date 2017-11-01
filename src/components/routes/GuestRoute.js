@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 
 const UserRoute = ({ isAuthenticated, component: Component, ...rest }) => (
-     <Route 
-        {...rest} 
+    <Route 
+        {...rest}
         render={props => 
             !isAuthenticated ? <Component {...props} /> : <Redirect to="/dashboard" />}
     />
 );
 
-UserRoute.PropTypes = {
+UserRoute.propTypes = {
     component: PropTypes.func.isRequired,
     isAuthenticated: PropTypes.bool.isRequired
 };
@@ -21,4 +21,5 @@ function mapStateToProps(state) {
         isAuthenticated: !!state.user.token
     }
 }
+
 export default connect(mapStateToProps)(UserRoute);

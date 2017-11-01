@@ -9,7 +9,7 @@ const DashboardPage = ({ isConfirmed }) => (
      </div>
 );
 
-DashboardPage.PropTypes = {
+DashboardPage.propTypes = {
     isConfirmed: PropTypes.bool.isRequired,
 }
 
