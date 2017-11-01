@@ -31,17 +31,17 @@ class ConfirmationPage extends Component {
         )}
 
         {!loading &&
-          success && (
-            <Message success icon>
-              <Icon name="checkmark" />
-              <Message.Content>
-                <Message.Header>
-                  Thank you. Your account has been verified
-                </Message.Header>
-                <Link to="/dashboard">Go to your Dashboard</Link>
-              </Message.Content>
-            </Message>
-          )}
+            success && (
+              <Message success icon>
+                <Icon name="checkmark" />
+                <Message.Content>
+                  <Message.Header>
+                    Thank you. Your account has been verified.
+                  </Message.Header>
+                  <Link to="/dashboard">Go to your dashboard</Link>
+                </Message.Content>
+              </Message>
+            )}
           
       </div>
     );
