@@ -36,9 +36,9 @@ class ResetPasswordForm extends React.Component {
 
   validate = data => {
     const errors = {};
-    if (!data.password) errors.passsword = "Can't be blank";
+    if (!data.password) errors.password = "Can't be blank";
     if (data.password !== data.passwordConfirmation)
-      errors.password = "Password must match";
+      errors.password = "Passwords must match";
     return errors;
   };
 
@@ -48,7 +48,7 @@ class ResetPasswordForm extends React.Component {
     return (
       <Form onSubmit={this.onSubmit} loading={loading}>
         <Form.Field error={!!errors.password}>
-          <label htmlFor="field">New Password</label>
+          <label htmlFor="password">New Password</label>
           <input
             type="password"
             id="password"
@@ -61,7 +61,9 @@ class ResetPasswordForm extends React.Component {
         </Form.Field>
 
         <Form.Field error={!!errors.passwordConfirmation}>
-          <label htmlFor="field">Confirm your password</label>
+          <label htmlFor="passwordConfirmation">
+            Confirm your new password
+          </label>
           <input
             type="password"
             id="passwordConfirmation"
@@ -74,7 +76,7 @@ class ResetPasswordForm extends React.Component {
             <InlineError text={errors.passwordConfirmation} />
           )}
         </Form.Field>
-				
+
         <Button primary>Reset</Button>
       </Form>
     );
