@@ -92,32 +92,35 @@ class BookForm extends React.Component {
                     type="text"
                     id="title"
                     name="title"
-                    placeholder="title"
+                    placeholder="Title"
                     value={data.title}
                     onChange={this.onChange}
                   />
                   {errors.title && <InlineError text={errors.title} />}
                 </Form.Field>
+
                 <Form.Field error={!!errors.authors}>
                   <label htmlFor="authors">Book Authors</label>
                   <input
                     type="text"
                     id="authors"
                     name="authors"
-                    placeholder="authors"
+                    placeholder="Authors"
                     value={data.authors}
                     onChange={this.onChange}
                   />
                   {errors.authors && <InlineError text={errors.authors} />}
                 </Form.Field>
+
                 <Form.Field error={!!errors.pages}>
                   <label htmlFor="pages">Pages</label>
                   <input
-                    type="number"
+                    disabled={data.pages === undefined}
+                    type="text"
                     id="pages"
                     name="pages"
-                    value={data.pages}
-                    onChange={this.onChange}
+                    value={data.pages !== undefined ? data.pages : "Loading..."}
+                    onChange={this.onChangeNumber}
                   />
                   {errors.pages && <InlineError text={errors.pages} />}
                 </Form.Field>
@@ -132,6 +135,7 @@ class BookForm extends React.Component {
                 )}
               </Grid.Column>
             </Grid.Row>
+
             <Grid.Row>
               <Button primary>Save</Button>
             </Grid.Row>
@@ -145,11 +149,11 @@ class BookForm extends React.Component {
 BookForm.propTypes = {
   submit: PropTypes.func.isRequired,
   book: PropTypes.shape({
-    goodreadsId: PropTypes.number.isRequired,
+    goodreadsId: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     authors: PropTypes.string.isRequired,
     covers: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    pages: PropTypes.number.isRequired
+    pages: PropTypes.number
   }).isRequired
 };
 
