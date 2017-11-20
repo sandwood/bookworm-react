@@ -17,6 +17,7 @@ class ResetPasswordPage extends Component {
       .then(() => this.setState({ loading: false, success: true }))
       .catch(() => this.setState({ loading: false, success: false }));
   }
+  
   submit = data =>
     this.props
       .resetPassword(data)
